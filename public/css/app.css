@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -1420,4 +1421,34 @@ html, body {
 
 #add_item_cart:hover {
   cursor: pointer;
+}
+
+.swap-box {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #52555c;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.swap-box:hover {
+  transform: scale(1.05);
+}
+
+.exchange-rate {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-top: -8px;
+}
+
+.btn-swap {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-swap:hover {
+  background-color: #218838;
+  border-color:   #218838;
 }

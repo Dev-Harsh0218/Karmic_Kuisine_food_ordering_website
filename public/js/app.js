@@ -13,15 +13,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var addToCart = document.querySelectorAll('.add_btn');
 function updateCart(item) {
-  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/update-cart', item).then(function (res) {
+  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/updated-cart', item).then(function (res) {
     console.log(res);
   });
 }
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
-    var item = btn.dataset.item;
+    var item = btn.dataset.atc_item;
     updateCart(item);
-    console.log(item);
   });
 });
 

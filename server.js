@@ -54,6 +54,7 @@ app.use(flash())
 //assets
 app.use(express.static('public'))
 
+app.use(express.json());
 //set template engine
 app.use(expresLayout)
 app.set('views', path.join(__dirname,'/resources/views'))
