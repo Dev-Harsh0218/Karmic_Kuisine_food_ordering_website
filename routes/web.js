@@ -19,7 +19,7 @@ function initRoutes(app){
     //offers --> to be created
     app.get('/offers',offersController().offers)
     //post-cart-update-request
-    app.post('/updated-cart', menuControl().update)
+    app.post('/updated-cart',menuControl().update)
 }   
 
 module.exports = initRoutes

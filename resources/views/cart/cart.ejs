@@ -5,7 +5,7 @@
     <img src="img/back7.jpg" alt="">
 </div>
 
-
+<% if(!session.cart){%>
 <div id="cart-mid">
     <div id="cart-mid-img">
         <img src="img/cart-test1.png" alt="">
@@ -17,54 +17,28 @@
     </div>
 </div>
 
-<!-- <div id="order-sum-con">
-    <div id="order-sum-head">
-        <i class="ri-shopping-cart-2-line"></i>
-        <h1>order summary</h1>
-    </div>
+<%}else {%>
+<div id="order-sum-con">
+        <div id="order-sum-head">
+            <i class="ri-shopping-cart-2-line"></i>
+            <h1>order summary</h1>
+        </div>
     <div id="cart-super-con">
+        <% for(let itms of Object.values(session.cart.items)) { %>
         <div id="single-ele-con">
             <div id="item-img">
                 <img src="img/pi_item.png" alt="">
             </div>
             <div id="item-details">
-                <h1 id="item-name">Marinana</h1>
-                <h6 id="size">Medium</h6>
+                <h1 id="item-name"><%= itms.item.i_name%></h1>
             </div>
             <div id="qun-price">
-                <span>1pcs</span>
-                <span>₹300</span>
+                <span><%= itms.qty%> Pcs.</span>
+                <span>₹<%= itms.item.i_price * itms.qty%></span>
             </div>
             <i class="ri-delete-bin-6-line"></i>
         </div>
-        <div id="single-ele-con">
-            <div id="item-img">
-                <img src="img/pi_item.png" alt="">
-            </div>
-            <div id="item-details">
-                <h1 id="item-name">Marinana</h1>
-                <h6 id="size">Medium</h6>
-            </div>
-            <div id="qun-price">
-                <span>1pcs</span>
-                <span>₹300</span>
-            </div>
-            <i class="ri-delete-bin-6-line"></i>
-        </div>
-        <div id="single-ele-con">
-            <div id="item-img">
-                <img src="img/pi_item.png" alt="">
-            </div>
-            <div id="item-details">
-                <h1 id="item-name">Marinana</h1>
-                <h6 id="size">Medium</h6>
-            </div>
-            <div id="qun-price">
-                <span>1pcs</span>
-                <span>₹300</span>
-            </div>
-            <i class="ri-delete-bin-6-line"></i>
-        </div>    
+        <%}%>
     </div>
     <div id="order-footer">
         <div id="coupon">
@@ -76,11 +50,13 @@
         </div>
         <div id="total_amount">
             <span>Total Amount :</span>
-            <span id="amt">₹300</span>
+            <span id="amt">₹<%= session.cart.total_price%></span>
         </div>
         <div id="checkoutbutton">
-            <button class="button-30" role="button">Place Order</button> -->
-            <!-- <button class="button-30" role="button">Login To Continue</button>
+            <button class="button-30 button-30-margin" role="button">Place Order</button>
+            <button class="button-30" role="button">Login To Continue</button>
         </div>
     </div>
-</div>  -->
+</div> 
+<%}%>
+

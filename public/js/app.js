@@ -12,13 +12,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 
 var addToCart = document.querySelectorAll('.add_btn');
+var cart_counter = document.getElementById("cart_act_count");
+var cart_count_div = document.getElementById("cart_count");
+var originalDisplay = cart_count_div.style.display || getComputedStyle(cart_count_div).display;
+if (cart_counter.innerText == 0) {
+  cart_count_div.style.display = 'none';
+}
 function updateCart(item) {
-  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/updated-cart', item).then(function (res) {
+  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/updated-cart', item, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(function (res) {
     console.log(res);
+    cart_counter.innerText = res.data.Total_qty;
+    cart_count_div.style.display = originalDisplay;
+    iziToast.show({
+      icon: 'remix-icon-success-item-to-cart',
+      title: 'YOO HOO!!',
+      titleColor: '#20D813',
+      position: 'topRight',
+      message: 'Item Added To Cart...',
+      messageColor: '#20D813',
+      titleSize: '18px',
+      layout: 1,
+      backgroundColor: '#272525',
+      progressBarColor: 'hsl(116, 52%, 57%)'
+    });
+  })["catch"](function (error) {
+    iziToast.show({
+      icon: 'remix-icon-error-item-to-cart',
+      message: 'Something went wrong...',
+      messageColor: 'hsl(0, 64%, 52%)',
+      position: 'topRight',
+      titleSize: '16px',
+      layout: 1,
+      close: false,
+      backgroundColor: '#272525',
+      progressBarColor: 'hsl(0, 64%, 52%)'
+    });
+    console.log('error updating cart', error);
   });
 }
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
+    e.preventDefault();
     var item = btn.dataset.atc_item;
     updateCart(item);
   });

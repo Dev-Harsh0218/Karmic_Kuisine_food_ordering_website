@@ -36,6 +36,7 @@ catch (error) {
 const mongoStore = MongoDbStore.create({
     mongoUrl:'mongodb://127.0.0.1:27017/Karmic_Kuisine',
     collection: 'session',
+    SameSite:'none',
     autoRemove:'native',  
 })
 
@@ -49,12 +50,18 @@ app.use(session({
 }))
 
 
+
+app.use((req,res,next)=>{
+    res.locals.session = req.session
+    next()
+})
 /// for flash messages or normal messages
 app.use(flash())
 //assets
 app.use(express.static('public'))
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 //set template engine
 app.use(expresLayout)
 app.set('views', path.join(__dirname,'/resources/views'))
