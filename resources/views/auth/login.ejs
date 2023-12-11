@@ -1,63 +1,41 @@
 <div id="login-head">
     <div id="login-head-text">
-        <h1>Tell us Who you are</h1>
-        <!-- <h1>Welcome Back !</h1> -->
+        <h1>Long time no see</h1>
     </div>
     <img src="img/back7.jpg" alt="">
 </div>
 
-
-<div id="register_form_con">
-    <div id="side_img">
-        <img src="img/register_pic.jpg" alt="">
-    </div>
-    <div id="actu-form-con">
-        <h2>Register</h2>
-        <form action="/login" id="actu-form" method="post">
-            <div class="input-fields">
-                 <label for="Name">full name</label>
-                 <input type="text" id="input_email">
-            </div>
-            <div class="input-fields">
-                <label for="Username_email">Username</label>
-                <input type="email" id="input_email">
-            </div>
-            <div class="input-fields">
-                 <label for="password">password</label>
-                 <input type="password" id="passwd">
-            </div>
-            <div class="input-fields">
-                <label for="phone">phone no.</label>
-                <input type="text" id="phone">
-           </div>
-            <button type="submit" id="sign_in_btn">I want in</button>
-            <div id="regi-link">
-                <p>Already have an account ? <a href="/login">Sign In</a></p>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- <div id="login_form_con">
+<div id="login_form_con">
     <div id="side_img">
         <img src="img/login_image.jpg" alt="">
     </div>
     <div id="actu-form-con">
         <h2>Login</h2>
-        <form action="#" id="actu-form" method="post">
+        <%if(messages.error){%>
+            <span id="error_on_invalidinput"><%= messages.error%></span>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+            <script>
+                iziToast.error({
+                  title: 'Error',
+                  message: 'You missed Something in the form',
+                  position: 'topRight',
+                  timeout: 2000,
+                });
+              </script>
+        <%}%>
+        <form action="/login" id="actu-form" method="post">
             <div class="input-fields">
                  <label for="Username_email">Username</label>
-                 <input type="email" id="input_email" placeholder="exa@gmail.com">
+                 <input name="username" type="email" id="input_email" placeholder="exa@gmail.com">
             </div>
             <div class="input-fields">
                  <label for="password">password</label>
-                 <input type="password" id="passwd" placeholder="eg. xyz@food">
+                 <input name="passwd" type="password" id="passwd" placeholder="eg. xyz@food">
             </div>
             <button type="submit" id="sign_in_btn">Let me in</button>
             <div id="regi-link">
-                <p>Don't have an account ? Why ? <a href="#">Sign up</a></p>
+                <p>Don't have an account ? Why ? <a href="/register">Sign up</a></p>
             </div>
         </form>
     </div>
-</div> -->
-
+</div>

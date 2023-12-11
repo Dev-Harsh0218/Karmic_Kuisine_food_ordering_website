@@ -11,6 +11,11 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 
+
+// const scroller = new LocomotiveScroll({
+//   el: document.querySelector('[data-scroll-section]'),
+//   smooth: true
+// });
 var addToCart = document.querySelectorAll('.add_btn');
 var cart_counter = document.getElementById("cart_act_count");
 var cart_count_div = document.getElementById("cart_count");

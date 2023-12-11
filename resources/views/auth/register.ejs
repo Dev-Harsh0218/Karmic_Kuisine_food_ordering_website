@@ -1,0 +1,51 @@
+<div id="login-head">
+    <div id="login-head-text">
+        <h1>Tell us Who you are</h1>
+        <!-- <h1>Welcome Back !</h1> -->
+    </div>
+    <img src="img/back7.jpg" alt="">
+</div>
+
+<div id="register_form_con">
+    <div id="side_img">
+        <img src="img/register_pic.jpg" alt="">
+    </div>
+    <div id="actu-form-con">
+        <h2>Register</h2>
+        <%if(messages.error){%>
+            <span id="error_on_invalidinput"><%= messages.error%></span>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+            <script>
+                iziToast.error({
+                  title: 'Error',
+                  message: 'You missed Something in the form',
+                  position: 'topRight',
+                  timeout: 2000,
+                });
+              </script>
+        <%}%>
+        <form action="/register" method="POST" id="actu-form">
+            <div class="input-fields">
+                 <label for="Name">full name</label>
+                 <input name ="fname" type="text"  value="<%= messages.name %>" class="input_name">
+            </div>
+            <div class="input-fields">
+                <label for="Username_email">Username</label>
+                <input name="username" type="email" value="<%= messages.user %>" id="input_email">
+            </div>
+            <div class="input-fields">
+                 <label for="password">password</label>
+                 <input name="passwd" type="current-password" id="passwd">
+            </div>
+            <div class="input-fields">
+                <label for="phone">phone no.</label>
+                <input name="phone_no" type="text" value="<%= messages.phone %>" id="phone">
+           </div>
+            <button type="submit" id="sign_in_btn">I want in</button>
+            <div id="regi-link">
+                <p>Already have an account ? <a href="/login">Sign In</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+

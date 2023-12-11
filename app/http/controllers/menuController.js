@@ -50,6 +50,7 @@ function menuControl(){
             }
             else{
                 cart.items[req.body._id].qty+=1;
+                cart.total_qty=cart.total_qty+1,
                 cart.total_price=cart.total_price+req.body.i_price;
             }
             

@@ -1433,6 +1433,10 @@ html, body {
   transform: translateY(2px);
 }
 
+#error_on_invalidinput {
+  color: hsl(0, 64%, 52%);
+}
+
 #login-head {
   height: 40vh;
   width: 100%;

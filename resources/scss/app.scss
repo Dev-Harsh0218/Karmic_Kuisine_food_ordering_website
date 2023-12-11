@@ -1,17 +1,6 @@
     @import "./variable";
     @import "~noty/src/noty.scss";
     @import "~noty/src/themes/mint.scss";
-    // .noty_theme__success-theme{
-    //     background: $success;
-    // }
-    // .noty_theme__success-theme .noty_body {
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     color: #191a1d;
-    //     margin: 5% 5%;
-    //     font-size: 16px;
-    // }
         .remix-icon-success-item-to-cart {
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAsMCwyNTYsMjU2IgpzdHlsZT0iZmlsbDojMDAwMDAwOyI+CjxnIGZpbGw9IiM2MGNhNTgiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxnIHRyYW5zZm9ybT0ic2NhbGUoOCw4KSI+PHBhdGggZD0iTTE2LDNjLTcuMTk5MjIsMCAtMTMsNS44MDA3OCAtMTMsMTNjMCw3LjE5OTIyIDUuODAwNzgsMTMgMTMsMTNjNy4xOTkyMiwwIDEzLC01LjgwMDc4IDEzLC0xM2MwLC0xLjM5ODQ0IC0wLjE4NzUsLTIuNzkyOTcgLTAuNjg3NSwtNC4wOTM3NWwtMS42MjUsMS41OTM3NWMwLjE5OTIyLDAuODAwNzggMC4zMTI1LDEuNjAxNTYgMC4zMTI1LDIuNWMwLDYuMTAxNTYgLTQuODk4NDQsMTEgLTExLDExYy02LjEwMTU2LDAgLTExLC00Ljg5ODQ0IC0xMSwtMTFjMCwtNi4xMDE1NiA0Ljg5ODQ0LC0xMSAxMSwtMTFjMywwIDUuNjk1MzEsMS4xOTUzMSA3LjU5Mzc1LDMuMDkzNzVsMS40MDYyNSwtMS40MDYyNWMtMi4zMDA3OCwtMi4zMDA3OCAtNS41LC0zLjY4NzUgLTksLTMuNjg3NXpNMjcuMjgxMjUsNy4yODEyNWwtMTEuMjgxMjUsMTEuMjgxMjVsLTQuMjgxMjUsLTQuMjgxMjVsLTEuNDM3NSwxLjQzNzVsNSw1bDAuNzE4NzUsMC42ODc1bDAuNzE4NzUsLTAuNjg3NWwxMiwtMTJ6Ij48L3BhdGg+PC9nPjwvZz4KPC9zdmc+') no-repeat center center;
             width: 35px; /* Adjust the width and height as needed */
@@ -1158,15 +1147,11 @@ html,body{
     transform: translateY(2px);
   }
 
-
-
-
-
-
-
-
+  
 //login page
-
+#error_on_invalidinput{
+    color:$erros;
+}
 #login-head{
     height: 40vh;
     width: 100%;

@@ -1,5 +1,9 @@
 import axios from 'axios'
 
+// const scroller = new LocomotiveScroll({
+//   el: document.querySelector('[data-scroll-section]'),
+//   smooth: true
+// });
 const addToCart = document.querySelectorAll('.add_btn');
 let cart_counter= document.getElementById("cart_act_count");
 let cart_count_div= document.getElementById("cart_count");

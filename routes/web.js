@@ -1,9 +1,10 @@
 const homeControl=require('../app/http/controllers/homeController')
 const aboutControl=require('../app/http/controllers/aboutController')
 const cartControl = require('../app/http/controllers/cartController')
-const loginControl = require('../app/http/controllers/loginController')
+const registerControl=require("../app/http/controllers/registerController")
 const menuControl = require('../app/http/controllers/menuController')
-const offersController = require('../app/http/controllers/offersController')
+const loginControl=require('../app/http/controllers/loginController')
+const guest = require('../app/http/middlewares/guest')
 
 function initRoutes(app){
     //// home route
@@ -13,11 +14,15 @@ function initRoutes(app){
     //cart route
     app.get('/cart',cartControl().cart)
     //login
-    app.get('/login',loginControl().login)
+    app.get('/login',guest,loginControl().login)
+    //login_post_route
+    app.post('/login',guest,loginControl().postLogin)
+    //register_get_route
+    app.get('/register',guest,registerControl().registerr)
+    //register_post_route
+    app.post('/register',guest,registerControl().Postregister)
     //menu
     app.get('/menu',menuControl().menu)
-    //offers --> to be created
-    app.get('/offers',offersController().offers)
     //post-cart-update-request
     app.post('/updated-cart',menuControl().update)
 }   
