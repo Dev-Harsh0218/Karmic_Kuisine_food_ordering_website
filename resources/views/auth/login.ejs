@@ -13,15 +13,6 @@
         <h2>Login</h2>
         <%if(messages.error){%>
             <span id="error_on_invalidinput"><%= messages.error%></span>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-            <script>
-                iziToast.error({
-                  title: 'Error',
-                  message: 'You missed Something in the form',
-                  position: 'topRight',
-                  timeout: 2000,
-                });
-              </script>
         <%}%>
         <form action="/login" id="actu-form" method="post">
             <div class="input-fields">

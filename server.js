@@ -62,8 +62,8 @@ app.use(passport.session());
 /// for flash messages or normal messages
 //passport config
 app.use((req, res, next) => {
-    res.locals.session = req.session;
-    res.locals.user = req.session.passport.user || null;
+    res.locals.session = req.session
+    res.locals.user= req.user || null
     next();
 });
 

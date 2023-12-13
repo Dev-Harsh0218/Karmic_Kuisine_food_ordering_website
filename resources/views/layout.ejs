@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,12 +34,14 @@
                 </a>
             </div>
             <h4><a href="/menu">Menu</a></h4>
-            <%if(!passport.user){%>
+            <%if(!user){%>
             <h4><a href="/login">LogIn</a></h4>
             <h4><a href="/register">SignIn</a></h4>
             <%}else{%>
+                <form id="logout" action="/logout" method="post">
+                    <h4><a onclick="document.getElementById('logout').submit()" href="#">SignOut</a></h4>    
+                </form>
                 <h4><a href="#">Offers</a></h4>
-                <h4><a href="#">SignOut</a></h4>    
             <%}%>
             <h4><a href="/about">About</a></h4>
             <div id="cart_icon_with_badge">

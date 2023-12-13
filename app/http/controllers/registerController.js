@@ -59,6 +59,16 @@ function loginControl(){
             // console.log(req.body)
             // res.render("auth/login")
         },
+        logout(req,res){
+            req.logout((err) => {
+                if (err) {
+                    // handle error
+                    return next(err);
+                }
+                // additional logic after logout
+                res.redirect('/login'); // or any other redirect
+            });
+        }
     }
 }
 

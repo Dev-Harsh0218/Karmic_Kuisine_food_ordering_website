@@ -21,6 +21,8 @@ function initRoutes(app){
     app.get('/register',guest,registerControl().registerr)
     //register_post_route
     app.post('/register',guest,registerControl().Postregister)
+    ///logout register
+    app.post('/logout',registerControl().logout)
     //menu
     app.get('/menu',menuControl().menu)
     //post-cart-update-request

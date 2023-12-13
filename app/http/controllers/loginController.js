@@ -9,6 +9,13 @@ function loginControl() {
     },
 
     postLogin(req, res, next) {
+      
+      const {username,passwd} = req.body
+            if(!username || !passwd){
+              req.flash('error','All the fields are required')
+              return res.redirect("/login")
+            }
+
       passport.authenticate("local", (err, user, info) => {
         if (err) {
           req.flash("error", info.message);
