@@ -1324,6 +1324,7 @@ html, body {
 }
 
 #addcuponline {
+  padding-top: 1rem;
   margin: 0 2em;
   margin-top: 0.5em;
   font-size: 1rem;
@@ -1348,9 +1349,8 @@ html, body {
 }
 
 #aply-cupon {
-  color: #efdcc3;
-  font-weight: 400;
-  font-size: 2rem;
+  margin-bottom: 7%;
+  font-size: 1.6rem;
   padding: 0.1rem 1.5rem;
   margin-left: 1rem;
   border-radius: 0.3rem;
@@ -1375,6 +1375,7 @@ html, body {
 
 #checkoutbutton {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 20%;

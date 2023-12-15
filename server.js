@@ -18,6 +18,10 @@ const MongoDbStore = require("connect-mongo");
 const flash = require("express-flash");
 //passport
 const passport = require("passport");
+app.use((req, res, next) => {
+  res.locals.user = null;
+  next();
+});
 // app.use((req, res, next) => {
 //     console.log('Entire req object:', req);
 //     next();
@@ -63,7 +67,11 @@ app.use(passport.session());
 //passport config
 app.use((req, res, next) => {
     res.locals.session = req.session;
-    res.locals.user = req.session.passport.user || null;
+    if (req.isAuthenticated() && req.session.passport) {
+      res.locals.user = req.session.passport.user;
+  } else {
+      res.locals.user = null;
+  }
     next();
 });
 

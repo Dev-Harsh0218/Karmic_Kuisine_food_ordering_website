@@ -2,61 +2,72 @@
     <div id="cart-head-text">
         <h1>Shopping Cart</h1>
     </div>
-    <img src="img/back7.jpg" alt="">
+    <img src="img/back7.jpg" alt="" />
 </div>
 
 <% if(!session.cart){%>
-<div id="cart-mid">
-    <div id="cart-mid-img">
-        <img src="img/cart-test1.png" alt="">
+    <div id="cart-mid">
+        <div id="cart-mid-img">
+            <img src="img/cart-test1.png" alt="" />
+        </div>
+        <div id="cart-mid-text">
+            <h4>woo!</h4>
+            <h6>Nothing here, But me</h6>
+            <p>You don't have ordered anything yet!! why dude ??</p>
+        </div>
     </div>
-    <div id="cart-mid-text">
-        <h4>woo!</h4>
-        <h6>Nothing here, But me</h6>
-        <p>You don't have ordered anything yet!! why dude ??</p>
-    </div>
-</div>
 
-<%}else {%>
-<div id="order-sum-con">
-        <div id="order-sum-head">
-            <i class="ri-shopping-cart-2-line"></i>
-            <h1>order summary</h1>
-        </div>
-    <div id="cart-super-con">
-        <% for(let itms of Object.values(session.cart.items)) { %>
-        <div id="single-ele-con">
-            <div id="item-img">
-                <img src="img/pi_item.png" alt="">
+    <%}else {%>
+        <form action="">
+            <div id="order-sum-con">
+                <div id="order-sum-head">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <h1>order summary</h1>
+                </div>
+                <div id="cart-super-con">
+                    <% for(let itms of Object.values(session.cart.items)) { %>
+                        <div id="single-ele-con">
+                            <div id="item-img">
+                                <img src="img/pi_item.png" alt="" />
+                            </div>
+                            <div id="item-details">
+                                <h1 id="item-name">
+                                    <%= itms.item.i_name%>
+                                </h1>
+                            </div>
+                            <div id="qun-price">
+                                <span>
+                                    <%= itms.qty%> Pcs.
+                                </span>
+                                <span>₹<%= itms.item.i_price * itms.qty%></span>
+                            </div>
+                            <i class="ri-delete-bin-6-line"></i>
+                        </div>
+                        <%}%>
+                </div>
+                <div id="order-footer">
+                    <div id="coupon">
+                        <p id="addcuponline">Add coupon code (optional)</p>
+                        <div id="coupon-input">
+                            <input type="text" placeholder="KK10" />
+                            <button id="aply-cupon" class="button-30">Apply</button>
+                        </div>
+                    </div>
+                    <div id="total_amount">
+                        <span>Total Amount :</span>
+                        <span id="amt">₹<%= session.cart.total_price%></span>
+                    </div>
+                    <div id="checkoutbutton">
+                        <%if(!user){%>
+                            <button class="button-30" role="button">
+                                <a href="/login">Login To Continue</a>
+                            </button>
+                            <%}else{%>
+                                <input type="text" name="phno" id="phone_on_cart" placeholder="931">
+                                <button class="button-30 button-30-margin" role="button">Place Order</button>
+                            <%}%>
+                    </div>
+                </div>
             </div>
-            <div id="item-details">
-                <h1 id="item-name"><%= itms.item.i_name%></h1>
-            </div>
-            <div id="qun-price">
-                <span><%= itms.qty%> Pcs.</span>
-                <span>₹<%= itms.item.i_price * itms.qty%></span>
-            </div>
-            <i class="ri-delete-bin-6-line"></i>
-        </div>
+        </form>
         <%}%>
-    </div>
-    <div id="order-footer">
-        <div id="coupon">
-            <p id="addcuponline">Add coupon code (optional)</p>
-            <div id="coupon-input">
-                <input type="text" placeholder="KK10">
-                <button id="aply-cupon">Apply</button>
-            </div>
-        </div>
-        <div id="total_amount">
-            <span>Total Amount :</span>
-            <span id="amt">₹<%= session.cart.total_price%></span>
-        </div>
-        <div id="checkoutbutton">
-            <button class="button-30 button-30-margin" role="button">Place Order</button>
-            <button class="button-30" role="button">Login To Continue</button>
-        </div>
-    </div>
-</div> 
-<%}%>
-
