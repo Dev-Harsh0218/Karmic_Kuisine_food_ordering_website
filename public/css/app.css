@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .noty_layout_mixin, #noty_layout__centerRight, #noty_layout__centerLeft, #noty_layout__center, #noty_layout__bottomRight, #noty_layout__bottomCenter, #noty_layout__bottomLeft, #noty_layout__bottom, #noty_layout__topRight, #noty_layout__topCenter, #noty_layout__topLeft, #noty_layout__top {
   position: fixed;
   margin: 0;
@@ -1235,12 +1234,14 @@ html, body {
 
 #order-sum-head i {
   font-size: 2.4rem;
+  color: #efdcc3;
 }
 
 #order-sum-head h1 {
   margin-left: 2%;
   font-size: 2.5rem;
   text-transform: capitalize;
+  color: #efdcc3;
 }
 
 #cart-super-con {
@@ -1309,21 +1310,25 @@ html, body {
 #order-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 22em;
   width: 96%;
   border-top: 1px solid burlywood;
   border-bottom: 1px solid burlywood;
 }
 
 #coupon {
+  border: 1px solid #efdcc3;
   display: flex;
   align-items: start;
   justify-content: center;
   flex-direction: column;
   width: 40%;
-  height: 6.5em;
+  height: 16em;
 }
 
 #addcuponline {
+  padding-top: 1rem;
   margin: 0 2em;
   margin-top: 0.5em;
   font-size: 1rem;
@@ -1347,10 +1352,19 @@ html, body {
   font-size: 1.8rem;
 }
 
-#aply-cupon {
+.cart_address_phone {
+  margin: 1.5% 0;
+  width: 60%;
   color: #efdcc3;
-  font-weight: 400;
-  font-size: 2rem;
+  border-bottom: 2px solid burlywood;
+  outline: none;
+  background: #191a1d;
+  font-size: 1.8rem;
+}
+
+#aply-cupon {
+  margin-bottom: 7%;
+  font-size: 1.6rem;
   padding: 0.1rem 1.5rem;
   margin-left: 1rem;
   border-radius: 0.3rem;
@@ -1367,22 +1381,20 @@ html, body {
 
 #total_amount span {
   font-size: 2rem;
+  color: #efdcc3;
 }
 
 #amt {
+  color: #efdcc3;
   margin-left: 3%;
 }
 
 #checkoutbutton {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 20%;
-  height: 6.5rem;
-}
-
-.button-30-margin {
-  margin-right: 4%;
+  width: 60%;
+  height: 20rem;
 }
 
 .button-30 {
@@ -1718,32 +1730,35 @@ html, body {
   cursor: pointer;
 }
 
-.swap-box {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #52555c;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+#order-head {
+  height: 40vh;
+  width: 100%;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.swap-box:hover {
-  transform: scale(1.05);
+#order-head img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  mix-blend-mode: color-dodge;
 }
 
-.exchange-rate {
-  font-size: 1.2rem;
-  color: #6c757d;
-  margin-top: -8px;
+#order-head-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  width: 40%;
 }
 
-.btn-swap {
-  background-color: #28a745;
-  border-color: #28a745;
-}
-
-.btn-swap:hover {
-  background-color: #218838;
-  border-color:   #218838;
+#order-head-text h1 {
+  color: burlywood;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-family: "Major Mono Display", monospace;
 }

@@ -5,6 +5,7 @@ const registerControl=require("../app/http/controllers/registerController")
 const menuControl = require('../app/http/controllers/menuController')
 const loginControl=require('../app/http/controllers/loginController')
 const guest = require('../app/http/middlewares/guest')
+const orderControl = require('../app/http/controllers/ordersController')
 
 function initRoutes(app){
     //// home route
@@ -27,6 +28,9 @@ function initRoutes(app){
     app.get('/menu',menuControl().menu)
     //post-cart-update-request
     app.post('/updated-cart',menuControl().update)
+    //orders
+    app.post('/orders',orderControl().store)
+    app.get('/orders',orderControl().orders)
 }   
 
 module.exports = initRoutes
