@@ -8,6 +8,7 @@ const orderStoreSchema= new Schema({
         ref:'User',
         required: true,
     },
+    orderNo:{type:Number, required:true},
     items:{ type:Object, required:true},
     phone:{type:String, required:true},
     address:{type:String, required:true},

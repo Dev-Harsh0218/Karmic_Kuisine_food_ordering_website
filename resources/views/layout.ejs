@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> 
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
+    <link rel="stylesheet" href="/css/app.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
@@ -19,39 +20,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oswald&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Exo+2:ital,wght@1,600&family=Kenia&family=Lobster&family=Major+Mono+Display&family=Skranji:wght@700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Exo+2:ital,wght@1,600&family=Kenia&family=Lobster&family=Major+Mono+Display&family=Skranji:wght@700&display=swap"
+        rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <title>Karmic Kuisine</title>
 </head>
 
 <body>
-    <div id="main">
+    <div id="main"> 
         <div id="nav">
             <div id="nav-img">
                 <a href="/">
-                    <img src="img/logo_withoutback.png" alt="" />
+                    <img src="/img/logo_withoutback.png" alt="" />
                 </a>
             </div>
             <h4><a href="/menu">Menu</a></h4>
             <%if(!user){%>
-            <h4><a href="/login">LogIn</a></h4>
-            <h4><a href="/register">SignIn</a></h4>
-            <%}else{%>
-                <form id="logout" action="/logout" method="post">
-                    <h4><a onclick="document.getElementById('logout').submit()" href="#">SignOut</a></h4>    
-                </form>
-                <h4><a href="/orders">Orders</a></h4>
-            <%}%>
-            <h4><a href="/about">About</a></h4>
-            <div id="cart_icon_with_badge">
-                <div id="cart_count">
-                    <h6 id="cart_act_count">
-                        <%= session.cart? session.cart.total_qty:'' %>
-                    </h6>
-                </div>
-                <a href="/cart"><i class="ri-shopping-cart-fill"></i></a>
-            </div>
+                <h4><a href="/login">LogIn</a></h4>
+                <h4><a href="/register">SignIn</a></h4>
+                <%}else{%>
+                    <form id="logout" action="/logout" method="post">
+                        <h4>
+                            <a onclick="document.getElementById('logout').submit()" href="#">SignOut</a>
+                        </h4>
+                    </form>
+                    <h4><a href="/orders">Orders</a></h4>
+                    <%}%>
+                        <h4><a href="/about">About</a></h4>
+                        <div id="cart_icon_with_badge">
+                            <div id="cart_count">
+                                <h6 id="cart_act_count">
+                                    <%= session.cart? session.cart.total_qty:'' %>
+                                </h6>
+                            </div>
+                            <a href="/cart"><i class="ri-shopping-cart-fill"></i></a>
+                        </div>
         </div>
         <%- body %>
             <div id="footer">
@@ -77,16 +82,13 @@
                     </div>
                 </div>
                 <p class="rights">
-                    &copy;2023 All Rights Reserved. Development by Harsh Bhardwaj
+                    &copy;2023 All Rights Reserved. Developed by Harsh Bhardwaj
                 </p>
             </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
-
-<!-- Add these lines in the head section of your HTML file -->

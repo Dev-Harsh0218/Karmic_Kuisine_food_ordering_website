@@ -1,12 +1,19 @@
+//controller imports
 const homeControl=require('../app/http/controllers/homeController')
 const aboutControl=require('../app/http/controllers/aboutController')
 const cartControl = require('../app/http/controllers/cartController')
 const registerControl=require("../app/http/controllers/registerController")
 const menuControl = require('../app/http/controllers/menuController')
 const loginControl=require('../app/http/controllers/loginController')
-const guest = require('../app/http/middlewares/guest')
 const orderControl = require('../app/http/controllers/ordersController')
+const adminControl=require('../app/http/controllers/adminController')
 
+//middlewares
+const auth=require('../app/http/middlewares/auth')
+const guest = require('../app/http/middlewares/guest')
+const adminAuth=require('../app/http/middlewares/admin')
+
+//main route function
 function initRoutes(app){
     //// home route
     app.get('/',homeControl().index)
@@ -29,8 +36,10 @@ function initRoutes(app){
     //post-cart-update-request
     app.post('/updated-cart',menuControl().update)
     //orders
-    app.post('/orders',orderControl().store)
-    app.get('/orders',orderControl().orders)
+    app.get('/orders',auth,orderControl().orders)
+    app.post('/orders',auth,orderControl().store)    
+    //admin routes
+    app.get('/admin/orders',adminAuth,adminControl().orders)
 }   
 
 module.exports = initRoutes

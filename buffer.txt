@@ -1,0 +1,59 @@
+const moment = require("moment");
+const axios = require("axios");
+
+function initAdmin() {
+  console.log("inside initadmin");
+  const orderTableBody = document.querySelector("#order-table-body");
+  let orders = [];
+  let markup;
+
+  axios.get("/admin/orders", {
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+    },
+  })
+    .then((res) => {
+      orders = res.data;
+      markup = generatedMarkup(orders);
+      orderTableBody.innerHTML = markup;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  function render_items(items) {
+    let parsedItems = Object.values(items);
+    return parsedItems.map((menuItem) => {
+      return `<p>${menuItem.item.i_name} - ${menuItem.qty} pcs </p>`;
+    }).join('');
+  }
+
+  function generatedMarkup(order) {
+    //logic
+    return orders.map((order) => {
+      return `
+            <tr>
+                <td class="order-table-ele">
+                    <h6>${order._id}</h6>
+                    <div id="all-orders">
+                        ${render_items(order.items)}
+                    </div>
+                </td>
+                <td class="order-table-ele">${order.customerId.fname}</td>
+                <td class="order-table-ele">${order.address}</td>
+                <td class="order-table-ele">
+                    <select class="order-status">
+                        <option value="placed">Placed</option>
+                        <option value="processing">Processing</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </td>
+                <td class="order-table-ele">${moment(order.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</td>
+            </tr>
+        `;
+    }).join('');
+  }
+}
+
+module.exports = initAdmin;

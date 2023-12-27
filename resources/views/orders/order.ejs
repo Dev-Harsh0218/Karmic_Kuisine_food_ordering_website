@@ -2,11 +2,59 @@
     <div id="order-head-text">
         <h1>Things we have served you</h1>
     </div>
-    <img src="img/back7.jpg" alt=""/>
+    <img src="img/back7.jpg" alt="" />
 </div>
-<div id="order-sum-con">
-    <div id="order-sum-head">
+<div id="orders-summary-con">
+    <div id="orders-summary-head">
         <i class="ri-shopping-cart-2-line"></i>
         <h1>order summary</h1>
+    </div>
+    <%if(messages.success){%>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+        <script>
+            iziToast.success({
+                title: "Success",
+                message: "<%= messages.success%>",
+                position: "topRight",
+                timeout: 2000,
+            });
+        </script>
+        <%}%>
+            <div id="orders-summary-act">
+                <%if(orders){%>
+                    <div id="orders-summary-col-heading">
+                        <h6>order ID</h6>
+                        <h6>Date</h6>
+                        <h6>Name</h6>
+                        <h6>Address</h6>
+                        <h6>status</h6>
+                        <h6>Qty</h6>
+                        <h6>Total</h6>
+                    </div>
+                    <% orders.forEach((order) => { %>
+                        <% order.items.forEach((item) => { %>
+                            <div id="orders-summary-rows">
+                                <p class="order_decoration"><a href="#">#<%= order.orderNo %></a></p>
+                                <p><%= moment(order.createdAt).format('ll') %></p>
+                                <p><%= item.name %></p>
+                                <p><%= order.address %></p>
+                                <p><%= order.status %></p>
+                                <p><%= item.qty%></p>
+                                <p><%= item.price * item.qty %></p>
+                            </div>
+                        <% }) %>
+                    <% }) %>
+                <%} else {%>
+                        <div id="cart-mid">
+                            <div id="cart-mid-img">
+                                <img src="img/cart-test1.png" alt="" />
+                            </div>
+                            <div id="cart-mid-text">
+                                <h4>woo!</h4>
+                                <h6>Nothing here, But me</h6>
+                                <p>You don't have ordered anything yet!! why dude ??</p>
+                            </div>
+                        </div>
+                 <%}%>
     </div>
 </div>

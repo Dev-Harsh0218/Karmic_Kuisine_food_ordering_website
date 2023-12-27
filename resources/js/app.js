@@ -1,13 +1,11 @@
 import axios from 'axios'
+import initAdmin from './admin';
 
-// const scroller = new LocomotiveScroll({
-//   el: document.querySelector('[data-scroll-section]'),
-//   smooth: true
-// });
 const addToCart = document.querySelectorAll('.add_btn');
 let cart_counter= document.getElementById("cart_act_count");
 let cart_count_div= document.getElementById("cart_count");
 var originalDisplay = cart_count_div.style.display || getComputedStyle(cart_count_div).display;
+
 if(cart_counter.innerText==0)
 {
             cart_count_div.style.display='none';
@@ -53,3 +51,5 @@ addToCart.forEach((btn) => {
       updateCart(item)
   });
 });
+
+initAdmin()

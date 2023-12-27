@@ -1731,6 +1731,7 @@ html, body {
 }
 
 #order-head {
+  overflow-x: hidden;
   height: 40vh;
   width: 100%;
   margin-top: 2%;
@@ -1761,4 +1762,125 @@ html, body {
   text-transform: uppercase;
   font-size: 4rem;
   font-family: "Major Mono Display", monospace;
+}
+
+#orders-summary-con {
+  padding: 2%;
+  width: 96%;
+  margin: 2% 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 2px solid burlywood;
+}
+
+#orders-summary-head {
+  padding: 1% 0;
+  width: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #efdcc3;
+}
+
+#orders-summary-head i {
+  font-size: 2.4rem;
+  color: #efdcc3;
+}
+
+#orders-summary-head h1 {
+  margin-left: 2%;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: #efdcc3;
+}
+
+#orders-summary-act {
+  padding: 2% 0;
+  flex-direction: column;
+  width: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2% 2%;
+  border: solid 1px #efdcc3;
+}
+
+#orders-summary-col-heading {
+  padding: 10px 20px;
+  width: 96%;
+  border-bottom: solid 1px #efdcc3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#orders-summary-col-heading h6 {
+  font-size: 1.8rem;
+  color: #B07300;
+  text-transform: capitalize;
+}
+
+#orders-summary-rows {
+  border: solid 1px #efdcc3;
+  margin-top: 2%;
+  padding: 10px 20px;
+  width: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#orders-summary-rows p {
+  font-size: 1.2rem;
+  color: #efdcc3;
+  text-transform: capitalize;
+}
+
+.order_decoration :hover {
+  color: #B07300;
+  font-size: 1.8rem;
+}
+
+#order-table {
+  margin: 2% 2%;
+  width: 96%;
+}
+
+.order-table-headers {
+  border: 1px solid #efdcc3;
+  padding: 1% 0;
+  font-size: 1.8rem;
+  color: #efdcc3;
+}
+
+.all-orders {
+  background-color: wheat;
+}
+
+.order-table-ele {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border: 1px solid #efdcc3;
+}
+
+.order-status, option {
+  border: 1px groove #efdcc3;
+  padding-left: 4%;
+  font-size: 1.5rem;
+  border-radius: 0.25em;
+  width: 80%;
+  background-color: #191A1D;
+  color: #efdcc3;
+}
+
+.order-table-address {
+  font-size: 1.4em;
+}
+
+.total-row {
+  font-size: 1.4em;
+  padding: 10px 20px;
+  border: 1px solid #efdcc3;
 }

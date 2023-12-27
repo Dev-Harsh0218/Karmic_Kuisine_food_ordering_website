@@ -1,7 +1,7 @@
-    @import "./variable";
-    @import "~noty/src/noty.scss";
-    @import "~noty/src/themes/mint.scss";
-        .remix-icon-success-item-to-cart {
+@import "./variable";
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
+.remix-icon-success-item-to-cart {
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAsMCwyNTYsMjU2IgpzdHlsZT0iZmlsbDojMDAwMDAwOyI+CjxnIGZpbGw9IiM2MGNhNTgiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxnIHRyYW5zZm9ybT0ic2NhbGUoOCw4KSI+PHBhdGggZD0iTTE2LDNjLTcuMTk5MjIsMCAtMTMsNS44MDA3OCAtMTMsMTNjMCw3LjE5OTIyIDUuODAwNzgsMTMgMTMsMTNjNy4xOTkyMiwwIDEzLC01LjgwMDc4IDEzLC0xM2MwLC0xLjM5ODQ0IC0wLjE4NzUsLTIuNzkyOTcgLTAuNjg3NSwtNC4wOTM3NWwtMS42MjUsMS41OTM3NWMwLjE5OTIyLDAuODAwNzggMC4zMTI1LDEuNjAxNTYgMC4zMTI1LDIuNWMwLDYuMTAxNTYgLTQuODk4NDQsMTEgLTExLDExYy02LjEwMTU2LDAgLTExLC00Ljg5ODQ0IC0xMSwtMTFjMCwtNi4xMDE1NiA0Ljg5ODQ0LC0xMSAxMSwtMTFjMywwIDUuNjk1MzEsMS4xOTUzMSA3LjU5Mzc1LDMuMDkzNzVsMS40MDYyNSwtMS40MDYyNWMtMi4zMDA3OCwtMi4zMDA3OCAtNS41LC0zLjY4NzUgLTksLTMuNjg3NXpNMjcuMjgxMjUsNy4yODEyNWwtMTEuMjgxMjUsMTEuMjgxMjVsLTQuMjgxMjUsLTQuMjgxMjVsLTEuNDM3NSwxLjQzNzVsNSw1bDAuNzE4NzUsMC42ODc1bDAuNzE4NzUsLTAuNjg3NWwxMiwtMTJ6Ij48L3BhdGg+PC9nPjwvZz4KPC9zdmc+') no-repeat center center;
             width: 35px; /* Adjust the width and height as needed */
             height: 35px;
@@ -10,9 +10,9 @@
           z-index: 999;
           opacity: 1;  
           gap:2%;
-          }
+}
 
-          .remix-icon-error-item-to-cart {
+.remix-icon-error-item-to-cart {
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA3MiA3MiIKc3R5bGU9ImZpbGw6I0ZBNTI1MjsiPgo8cGF0aCBkPSJNMzYsMTJjMTMuMjU1LDAsMjQsMTAuNzQ1LDI0LDI0YzAsMTMuMjU1LTEwLjc0NSwyNC0yNCwyNFMxMiw0OS4yNTUsMTIsMzZDMTIsMjIuNzQ1LDIyLjc0NSwxMiwzNiwxMnogTTQwLjI0Myw0NC40ODUJYzEuMTcxLDEuMTcxLDMuMDcxLDEuMTcyLDQuMjQzLDBjMS4xNzItMS4xNzIsMS4xNzEtMy4wNzEsMC00LjI0M0M0NC4yNTMsNDAuMDEsNDIuMDYzLDM3LjgyLDQwLjI0MywzNgljMS44Mi0xLjgyLDQuMDEtNC4wMSw0LjI0My00LjI0M2MxLjE3MS0xLjE3MSwxLjE3Mi0zLjA3MSwwLTQuMjQzYy0xLjE3MS0xLjE3MS0zLjA3MS0xLjE3MS00LjI0MywwCUM0MC4wMSwyNy43NDcsMzcuODIsMjkuOTM3LDM2LDMxLjc1N2MtMS44Mi0xLjgyLTQuMDEtNC4wMS00LjI0My00LjI0M2MtMS4xNzEtMS4xNzEtMy4wNzEtMS4xNzItNC4yNDMsMAljLTEuMTcyLDEuMTcyLTEuMTcxLDMuMDcxLDAsNC4yNDNjMC4yMzIsMC4yMzIsMi40MjMsMi40MjMsNC4yNDMsNC4yNDNjLTEuODIsMS44Mi00LjAxLDQuMDEtNC4yNDMsNC4yNDMJYy0xLjE3MSwxLjE3MS0xLjE3MSwzLjA3MSwwLDQuMjQzYzEuMTcyLDEuMTcyLDMuMDcxLDEuMTcxLDQuMjQzLDBjMC4yMzItMC4yMzIsMi40MjMtMi40MjMsNC4yNDMtNC4yNDMJQzM3LjgyLDQyLjA2Myw0MC4wMSw0NC4yNTMsNDAuMjQzLDQ0LjQ4NXoiPjwvcGF0aD4KPC9zdmc+') no-repeat center center;
             width: 24px; /* Adjust the width and height as needed */
             height: 24px;
@@ -21,8 +21,7 @@
           z-index: 999;
           opacity: 1;  
           gap:2%;
-          }
-// default to all pages
+}
 *{
     margin :0;
     padding: 0;
@@ -71,7 +70,6 @@ html,body{
     align-items: center;
     justify-content: flex-start;
     background-color: $primary;
-    // background-color: #191a1d;
     border-radius: 15px;
     gap: 8%;
     padding: 0 3%;
@@ -1447,6 +1445,7 @@ html,body{
 
 //orders page
 #order-head{
+    overflow-x:hidden;
     height: 40vh;
     width: 100%;
     margin-top: 2%;
@@ -1476,7 +1475,121 @@ html,body{
     font-family: 'Major Mono Display', monospace;
 }
 
+#orders-summary-con{
+    padding: 2%;
+    width: 96%;
+    margin: 2% 2%;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid burlywood;
+}
+#orders-summary-head{
+    padding: 1% 0;
+    // background-color: black;
+    width: 96%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #efdcc3;
+}
+#orders-summary-head i{
+    font-size: 2.4rem;
+    color:#efdcc3;
+}
+#orders-summary-head h1{
+    margin-left: 2%;
+    font-size:2.5rem;
+    text-transform: capitalize;
+    color:#efdcc3;
+}
+#orders-summary-act{
+    padding: 2% 0;
+    flex-direction: column;
+    // background-color: whitesmoke;
+    width: 96%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2% 2%;
+    border:solid 1px #efdcc3;
+}
+#orders-summary-col-heading{
+    padding: 10px 20px;
+    width: 96%;
+    border-bottom:solid 1px #efdcc3;
+    // background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+#orders-summary-col-heading h6{
+    font-size: 1.8rem;
+    color:#B07300;
+    text-transform: capitalize;
+}
+#orders-summary-rows{
+    border:solid 1px #efdcc3;
+    margin-top: 2%;
+    padding: 10px 20px;
+    width: 96%;
+    // background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+#orders-summary-rows p{
+    font-size: 1.2rem;
+    color:#efdcc3;
+    text-transform: capitalize;
+}
+.order_decoration{
+    :hover{
+        color: #B07300;
+        font-size: 1.8rem;
+    }
+}
 
+
+//admin orders pages
+#order-table{
+    margin: 2% 2%;
+    width: 96%;
+}
+
+.order-table-headers{
+    border: 1px solid #efdcc3;
+    padding: 1% 0;
+    font-size: 1.8rem;
+    color: #efdcc3;
+}
+
+.all-orders{
+    background-color: wheat;
+}
+.order-table-ele{
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: 1px solid #efdcc3;
+}
+.order-status,option{
+    border: 1px groove #efdcc3;
+    padding-left: 4%;
+    font-size: 1.5rem;
+    border-radius: .25em;
+    width: 80%;
+    background-color: #191A1D;
+    color:#efdcc3;
+}
+.order-table-address{
+    font-size: 1.4em;
+}
+.total-row{
+    font-size: 1.4em;
+    padding: 10px 20px;
+    border: 1px solid #efdcc3;
+}
 
 // background-color: #36395A;
 // font-family: 'Oswald', sans-serif;

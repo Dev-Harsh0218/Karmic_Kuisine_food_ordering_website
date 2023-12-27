@@ -83,9 +83,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //set template engine
 app.use(expresLayout);
-app.set("views", path.join(__dirname, "/resources/views"));
+app.set("views", path.join(__dirname, "resources/views/"));
 app.set("view engine", "ejs");
 require("./routes/web")(app);
+app.use(express.static(path.join(__dirname,'public')));
 
 ///routes
 
