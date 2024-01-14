@@ -29,11 +29,15 @@ function init(passport) {
     )
   );
   passport.serializeUser((user, done) => {
-    done(null, user._id);
+    const serial_user={
+      _id: user._id,
+      role: user.role,
+    }
+    done(null,serial_user);
   });
-  passport.deserializeUser(async (id, done) => {
+  passport.deserializeUser(async (serial_user, done) => {
     try {
-      const user = await User.findById(id);
+      const user = await User.findById(serial_user._id);
       if (user) {
         return done(null, user);
       } else {

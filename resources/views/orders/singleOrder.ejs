@@ -1,0 +1,74 @@
+<div id="order-head">
+    <div id="order-head-text">
+        <h1>Track your order</h1>
+    </div>
+    <img src="/img/back7.jpg" alt="" />
+</div>
+
+<div id="orders-summary-con">
+    <div id="orders-summary-head" class="s-order-page-heading">
+        <i class="ri-shopping-cart-2-line"></i>
+        <h1>order summary</h1>
+    </div>
+    <div id="s-order-act-con">
+        <div id="s-order-act-left" class="s-order-act-parts">
+            <h2>Order No : <span><%= order._id%></span></h2>
+            <input id="ordertransfer" type="hidden" value="<%= JSON.stringify(order)%>">
+            <div class="single_order_details">
+                <h6>Phone: <span><%= order.phone%></span></h6>
+                <h6>Address: <span><%=order.address%></span></h6>
+                <h6>status: <span><%=order.status%></span></h6>
+                <h6>Payment: <span><%= order.payType%></span></h6>
+                <%if(order.payType==='COD'){%>
+                    <h6>Other Charges: <span>₹39</span></h6>
+                    <h6>Amount: <span>₹<%= amt+39 %></span></h6>
+                    <%}else{%>
+                        <h6>Amount: <span>₹<%= amt%></span></h6>
+                        <%}%>
+                        <h6>Placed At: <span><%= moment(order.createdAt).format('llll')%></span></h6>
+                    </div>
+        </div>
+        <div id="s-order-act-right" class="s-order-act-parts">
+            <div class="single_order_items">
+                <div id="headin_order">
+                    <h1> Order items</h1>
+                </div>
+                <% Object.values(order.items).forEach(ele =>{%>
+                    <p><%= ele.item.i_name%> - <%=ele.qty%>pcs - ₹<%= ele.item.i_price%></p>
+                <%})%>
+            </div>
+        </div> 
+    </div>
+    <div id="order_tracker">
+        <div class="row">
+            <div class="col-12 col-md-10 hh-grayBox pt45 pb10">
+                <div class="row justify-content-between flex">
+                    <div class="order-tracking pb1" data-status="order_placed">
+                        <span class="is-complete"></span>
+                        <p>Order Placed<br><span>Mon, June 24</span></p>
+                    </div>
+                    <div class="order-tracking pb2" data-status="confirmed">
+                        <span class="is-complete"></span>
+                        <p>Comfirmed<br><span>Mon, June 24</span></p>
+                    </div>
+                    <div class="order-tracking pb2" data-status="prepared">
+                        <span class="is-complete"></span>
+                        <p>Preparing<br><span>Mon, June 24</span></p>
+                    </div>
+                    <div class="order-tracking p3" data-status="outForDelievery">
+                        <span class="is-complete"></span>
+                        <p>Out for delivery<br><span>Mon, June 24</span></p>
+                    </div>
+                    <div class="order-tracking p4" data-status="delivered">
+                        <span class="is-complete"></span>
+                        <p>Delivered<br><span>Tue, June 25</span></p>
+                    </div>
+                    <div class="order-tracking pb5" data-status="completed">
+                        <span class="is-complete"></span>
+                        <p>Completed<br><span>Fri, June 28</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

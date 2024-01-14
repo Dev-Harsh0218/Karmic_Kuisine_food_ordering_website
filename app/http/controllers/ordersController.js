@@ -18,21 +18,23 @@ function orderControl() {
         phone: phno,
         address: address,
       });
-      order
-        .save()
-        .then((result) => {
+      order.save().then((result) => {
           req.flash("success", "Order placed successfully");
           delete req.session.cart;
+          //emitting event
+          const eventEmitter=req.app.get('eventEmitter')
+          eventEmitter.emit('orderPlaced',result)
           res.redirect("/orders");
-        })
-        .catch((err) => {
+        }).catch((err) => {
           req.flash("error", "Something went wrong");
           return res.redirect("/cart");
         });
+
     },
     async orders(req, res) {
       const orders= await OrderStore.find({customerId: req.user._id},null,{sort:{'createdAt':-1}})
       const orders_processed= orders.map(order => ({
+        id:order._id,
         orderNo: order.orderNo,
         items: Object.keys(order.items).map(itemId => ({
           id: order.items[itemId].item._id,
@@ -48,6 +50,21 @@ function orderControl() {
       }));
       res.render("orders/order",{orders:orders_processed,moment:moment});
     },
+
+    async singleOrder(req,res){
+      const order=await OrderStore.findById(req.params.id)
+      let sum=0;
+      //authorize user
+      if(req.user._id.toString() === order.customerId.toString())
+      {
+        let parsedItems = Object.values(order.items);
+        parsedItems.map((menuItem) => {
+        sum = sum + menuItem.item.i_price;
+        });
+        return res.render('orders/singleOrder',{order:order , moment:moment,amt:sum})
+      }
+      return res.redirect('/')
+    }
   };
 }
 

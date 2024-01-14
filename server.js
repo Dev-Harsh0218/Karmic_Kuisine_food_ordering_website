@@ -16,16 +16,15 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDbStore = require("connect-mongo");
 const flash = require("express-flash");
+const Emitter=require('events')
 //passport
 const passport = require("passport");
+
+
 app.use((req, res, next) => {
   res.locals.user = null;
   next();
 });
-// app.use((req, res, next) => {
-//     console.log('Entire req object:', req);
-//     next();
-// });
 //// db connection
 try {
   const db_connection = mongoose
@@ -48,6 +47,10 @@ const mongoStore = MongoDbStore.create({
   SameSite: "none",
   autoRemove: "native",
 });
+
+//Event Emitter
+const eventEmitter=new Emitter()
+app.set('eventEmitter',eventEmitter)
 
 app.use(
   session({
@@ -88,9 +91,25 @@ app.set("view engine", "ejs");
 require("./routes/web")(app);
 app.use(express.static(path.join(__dirname,'public')));
 
-///routes
 
 //consolse.log
-app.listen(PORT, () => {
+const server=app.listen(PORT, () => {
   console.log(`Harsh is the done coder ever  ${PORT}`);
 });
+
+//socket
+const io=require('socket.io')(server)
+io.on('connection',(socket)=>{
+    //join
+    socket.on('join',(orderId)=>{
+      socket.join(orderId);
+    })
+})
+
+eventEmitter.on('orderUpdate',(data)=>{
+    io.to(`order_${data.id}`).emit('orderUpdated',data)
+})
+
+eventEmitter.on('orderPlaced',(result)=>{
+  io.to('adminRoom').emit('orderPlaced',result)
+})
