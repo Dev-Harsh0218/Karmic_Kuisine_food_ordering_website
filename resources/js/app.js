@@ -1,6 +1,7 @@
 import axios from "axios";
 import initAdmin from "./admin";
 import moment from "moment";
+import { error } from "laravel-mix/src/Log";
 
 const addToCart = document.querySelectorAll(".add_btn");
 let cart_counter = document.getElementById("cart_act_count");
@@ -13,9 +14,7 @@ if (cart_counter.innerText == 0) {
 
 function updateCart(item) {
   axios
-    .post("/updated-cart", item, {
-      headers: { "Content-Type": "application/json" },
-    })
+    .post("/updated-cart", item, {headers: { "Content-Type": "application/json" },})
     .then((res) => {
       cart_counter.innerText = res.data.Total_qty;
       cart_count_div.style.display = originalDisplay;
@@ -56,6 +55,47 @@ addToCart.forEach((btn) => {
   });
 });
 
+function del_cart_item(del_item){
+  console.log(del_item)
+    axios.post('/delete-Item-cart',del_item,{headers: { "Content-Type": "application/json" },}).then((res)=>{
+      location.reload();
+      iziToast.show({
+        title: "UPDATE",
+        titleColor: "#20D813",
+        position: "topRight",
+        message: "Item deleted",
+        messageColor: "#20D813",
+        titleSize: "18px",
+        layout: 1,
+        backgroundColor: "#272525",
+        progressBarColor: "hsl(116, 52%, 57%)",
+      });
+    }).catch((error) =>{
+      iziToast.show({
+        icon: "remix-icon-error-item-to-cart",
+        message: "Something went wrong...",
+        messageColor: "hsl(0, 64%, 52%)",
+        position: "topRight",
+        titleSize: "16px",
+        layout: 1,
+        close: false,
+        backgroundColor: "#272525",
+        progressBarColor: "hsl(0, 64%, 52%)",
+      });
+      console.log("error updating cart", error);
+    })
+}
+
+//--------cart-delete-button---------- functionality
+//getting all the deleted cart item
+const delbtn=document.querySelectorAll('.deletebtn')
+delbtn.forEach((btn)=>{
+  btn.addEventListener("click", (e) =>{
+    e.preventDefault();
+    let del_item=btn.dataset.del_item;
+    del_cart_item(del_item);
+  })
+})
 
 //------------runtime order tracker ----------
 //change order status

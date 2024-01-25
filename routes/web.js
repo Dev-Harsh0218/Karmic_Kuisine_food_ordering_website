@@ -35,13 +35,11 @@
             app.get('/menu',menuControl().menu)
         //post-cart-update-request
             app.post('/updated-cart',menuControl().update)
+            app.post('/delete-Item-cart',menuControl().deleteItem)
         //orders
             app.get('/orders',auth,orderControl().orders)
             app.post('/orders',auth,orderControl().store)
-
             app.get('/orders/:id',auth,orderControl().singleOrder)
-
-
         //admin routes
             app.get('/admin/orders',adminAuth,adminControl().orders)
         //admin order status

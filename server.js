@@ -26,9 +26,10 @@ app.use((req, res, next) => {
   next();
 });
 //// db connection
+const db_uri=process.env.MONGO_URI
 try {
   const db_connection = mongoose
-    .connect("mongodb://127.0.0.1:27017/Karmic_Kuisine")
+    .connect(db_uri)
     .catch((error) => {
       handleError(error);
     });
@@ -89,6 +90,9 @@ app.use(expresLayout);
 app.set("views", path.join(__dirname, "resources/views/"));
 app.set("view engine", "ejs");
 require("./routes/web")(app);
+app.use((req,res)=>{
+  res.send(404).render('errors/404')
+})
 app.use(express.static(path.join(__dirname,'public')));
 
 

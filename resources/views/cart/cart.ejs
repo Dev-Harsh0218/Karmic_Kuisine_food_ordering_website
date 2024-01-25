@@ -41,7 +41,7 @@
                                 </span>
                                 <span>₹<%= itms.item.i_price * itms.qty%></span>
                             </div>
-                            <i class="ri-delete-bin-6-line"></i>
+                            <i class="ri-delete-bin-6-line deletebtn" data-del_item="<%= JSON.stringify(itms)%>"></i>
                         </div>
                         <%}%>
                 </div>

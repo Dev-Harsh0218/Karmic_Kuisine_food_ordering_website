@@ -118,6 +118,7 @@ html,body{
 #page1{
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 #background{
@@ -1026,10 +1027,18 @@ html,body{
     font-size: 1.5rem;
     color: #efdcc3;
 }
+.ri-delete-bin-6-line:hover{
+    cursor: pointer;
+    color: #B07300;
+}
 .ri-delete-bin-6-line{
+    // cursor: pointer;
+    // color: #B07300;
     margin-left: 5%;
     font-size: 1.9rem;
 }
+
+
 #order-footer{
     display: flex;
     align-items: center;
@@ -1752,6 +1761,46 @@ html,body{
 }
 .order-tracking:first-child:before{display: none;}
 .order-tracking.completed:before{background-color: #27aa80;}
+
+/*======================
+    404 page
+=======================*/
+
+
+.page_404{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding:40px 0; 
+    background:#5a4141; 
+    font-family: 'Arvo', serif;
+}
+
+.page_404  img{ width:100%;}
+
+.four_zero_four_bg{
+ 
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ }
+ 
+  .four_zero_four_bg h3{
+       font-size:80px;
+       }
+       
+       .link_404{      
+  color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;}
+  .contant_box_404{ margin-top:-50px;}
 
 
 // background-color: #36395A;
